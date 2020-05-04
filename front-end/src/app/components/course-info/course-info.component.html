@@ -1,0 +1,16 @@
+<div class="row mt-5" *ngIf="courseInfo">
+  <div class="col-3 text-center">
+    <i class={{courseInfo.previewImage}}></i>
+  </div>
+  <div class="col-12 col-md-9">
+    <h2><i class="fab fa-angular angular-color d-md-none mr-2"></i>{{courseInfo.name}}- {{courseInfo.courseMode}}</h2>
+    <p>{{courseInfo.description}}</p>
+    <button (click)="enroll()"  *ngIf="!(isEnrolled || isAlreadyEnrolled) && (!isAdmin)" mat-stroked-button>Enroll</button>
+  </div>
+  <p class="alert alert-success" *ngIf="isEnrolled">
+       <strong>Successfully Enrolled!</strong>
+  </p>
+  <p class="alert alert-success" *ngIf="isAlreadyEnrolled">
+       <strong>Already Enrolled!</strong>
+  </p>
+</div>

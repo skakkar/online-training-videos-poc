@@ -1,0 +1,50 @@
+<!--<div fxLayout="row" fxLayoutAlign="left">
+<mat-card fxFlex="400px">
+	<mat-card-content>
+    <form [formGroup]="registerCourseSectionForm" (ngSubmit)="register(registerCourseSectionForm)">
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
+        <mat-select formControlName="couserId" placeholder="Course">
+          <mat-option *ngFor="let course of courses" [value]="course.id">
+           {{course.name}}
+          </mat-option>
+        </mat-select>
+      </div>
+			<div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
+        <mat-form-field  style="width:50vw">
+          <input matInput type="text" formControlName="name" placeholder="Section Name"  required>
+        </mat-form-field>
+      </div>
+			<div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
+        <mat-form-field  style="width:50vw">
+          <input matInput type="text" formControlName="description" placeholder="Section Description"  required>
+        </mat-form-field>
+      </div>
+			<div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
+         <button mat-stroked-button type="submit">Register Course Section</button>
+         <div class="alert alert-danger" role="alert" *ngIf="errorMessage">{{errorMessage}}</div>
+         <div class="alert alert-danger" role="alert" *ngIf="successMessage">{{successMessage}}</div>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
+-->
+<div class="row mb-5">
+  <div class="col-12 col-md-8">
+    <form [formGroup]="registerCourseSectionForm" (ngSubmit)="register(registerCourseSectionForm)">
+      <mat-select class="full-width mb-2" formControlName="couserId" placeholder="Course" style="margin-bottom: 20em">
+        <mat-option *ngFor="let course of courses" [value]="course.id" (click)="getCourseSections(course)">
+         {{course.name}}
+        </mat-option>
+      </mat-select>
+      <mat-form-field  class="full-width mb-2">
+        <input matInput type="text" formControlName="name" placeholder="Content Name"  required>
+      </mat-form-field>
+      <mat-form-field  class="full-width mb-2">
+        <input matInput type="text" formControlName="description" placeholder="Content Description"  required>
+      </mat-form-field>
+      <button mat-stroked-button type="submit">Register Course Section</button>
+      <div class="alert alert-danger" role="alert" *ngIf="errorMessage">{{errorMessage}}</div>
+      <div class="alert alert-danger" role="alert" *ngIf="successMessage">{{successMessage}}</div>
+    </form>
+  </div>
+</div>

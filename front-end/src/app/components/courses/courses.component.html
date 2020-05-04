@@ -1,0 +1,20 @@
+<div class="row">
+  <mat-card class="col-12">
+    <h4>Courses List</h4>
+  </mat-card>
+</div>
+<div @list class="row mb-5" *ngIf="courses">
+  <div @items  *ngFor="let item of courses">
+    <div class="row mt-5">
+      <div class="col-3 text-center">
+        <!--<img mat-card-image [src]="item.previewImage + '?text=' + item.name" [alt]="item.name">-->
+        <i mat-card-avatar class="fa fa-desktop accent-color fa-2x"></i>
+      </div>
+      <div class="col-12 col-md-9">
+        <h2><i class="fab fa-angular angular-color d-md-none mr-2"></i>{{item.name}}- {{item.courseMode}}</h2>
+        <p>{{item.description}}</p>
+        <button (click)="viewCourse(item.id, item.name)"  mat-stroked-button>View Details</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+version: "3"
+services:
+  training:
+    image: training
+    build: .
+    ports:
+      - "3000:3000"
+    networks:
+      - boot-mysql-nw
+    depends_on:
+      - mysqldb
+ 
+  mysqldb:
+    image: mysql:8
+    networks:
+      - boot-mysql-nw
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=sample_database  
+
+networks:
+  boot-mysql-nw:

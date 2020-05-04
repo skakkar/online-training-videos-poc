@@ -1,0 +1,10 @@
+<mat-tab-group>
+  <mat-tab label="Online" *ngIf="onlineCourses">
+    <app-portfolio [courses]="onlineCourses"></app-portfolio>
+  </mat-tab>
+  <mat-tab label="Classroom">
+      <mat-card-title>
+          There is no recording available as its classroom course
+      </mat-card-title>
+  </mat-tab>
+</mat-tab-group>

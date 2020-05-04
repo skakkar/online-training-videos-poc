@@ -1,0 +1,16 @@
+<iframe [class.thumbnail]="thumbnail" *ngIf="safeSrc" [src]="safeSrc" width="1100" height="520" frameborder="0" webkitallowfullscreen mozallowfullscreen
+      allowfullscreen>
+</iframe>
+
+<mat-accordion displayMode="flat" multi class="mat-table">
+  <section matSort class="mat-elevation-z2 mat-header-row">
+  </section>
+  <mat-expansion-panel *ngFor="let courseSection of course.courseSections">
+    <mat-expansion-panel-header class="mat-row">
+      <span class="mat-cell">{{courseSection.id}} . {{courseSection.name}}</span>
+    </mat-expansion-panel-header>
+    <div *ngFor="let courseContent of courseSection.courseContents">
+      <pre><button mat-button (click)="playContent(courseContent.videoUrl)">{{courseContent.id}} . {{courseContent.name}}</button></pre>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
