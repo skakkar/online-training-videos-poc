@@ -4,7 +4,7 @@ services:
     image: training
     build: .
     ports:
-      - "3000:3000"
+      - "8080:8080"
     networks:
       - boot-mysql-nw
     depends_on:
@@ -12,6 +12,9 @@ services:
  
   mysqldb:
     image: mysql:8
+    ports:
+      - 3306
+      - 33060
     networks:
       - boot-mysql-nw
     environment:
